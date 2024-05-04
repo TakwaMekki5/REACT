@@ -1,0 +1,35 @@
+/* dashboard.css */
+.Admin-page-container {
+    height: 100vh;
+    width: 100%;
+    background-image: url('C:\Users\tmekki\frontendreactjs\public\images\Admin.jpeg'); /* Modifiez le chemin de l'image selon votre structure de fichiers */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%; /* Déplace le contenu à 50% de la largeur de la fenêtre */
+    transform: translate(-50%, -50%); /* Déplace le contenu de moitié de sa propre taille vers la gauche et vers le haut */
+    width: 300px; /* ou la largeur que vous préférez */
+  }
+  
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Styles pour les boutons */
+  .btn {
+    width: 100%; /* Les boutons occuperont toute la largeur */
+    margin-top: 10px; /* Espacement entre les boutons */
+  }
+  .exit-button {
+    color: black; /* Définit la couleur du texte en noir */
+  }
+  

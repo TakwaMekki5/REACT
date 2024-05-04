@@ -1,0 +1,38 @@
+.form-group {
+    display: flex;
+    flex-direction: column; /* Aligner les éléments verticalement */
+    align-items: flex-start; /* Aligner les éléments à gauche */
+    justify-content: center; /* Centrer horizontalement */
+  }
+  
+  .form-group label {
+    margin-bottom: 10px; /* Espacement entre les labels */
+    min-width: 200px;
+  }
+  
+  .form-control {
+    width: 100%;
+    margin-bottom: 10px; /* Espacement entre les éléments */
+  }
+  .form-control::placeholder {
+    color: #666; /* Couleur gris pour le placeholder */
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Assurez-vous que la hauteur occupe tout l'écran */
+  }
+  
+  .Admin-page-container {
+    height: 100vh;
+    width: 100%;
+    background-image: url('C:\Users\tmekki\frontendreactjs\public\images\Admin.jpeg'); /* Modifiez le chemin de l'image selon votre structure de fichiers */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
