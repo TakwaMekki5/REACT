@@ -7,6 +7,7 @@ const Part = () => {
   const [serverChoice, setServerChoice] = useState('');
   const [displayOption, setDisplayOption] = useState('');
   const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,18 +23,38 @@ const Part = () => {
         url = 'http://127.0.0.1:8000/home/';
       } else if (displayOption === 'Certificat') {
         url = 'http://127.0.0.1:8000/certif/';
+      } else if (displayOption === 'Flux') {
+        url = 'http://127.0.0.1:8000/flux/';
       } else {
         console.error('Invalid display option');
         return;
       }
 
-      const response = await axios.get(url, { params });
+      const response = await axios.get(url, { params })
+      .then(res => {console.log(res.data)
 
-      if (displayOption === 'Port et Adresse Réseau') {
-        navigate('/sap', { state: { data: response.data } });
-      } else if (displayOption === 'Certificat') {
-        navigate('/certif', { state: { data: response.data } });
-      }
+
+
+
+        if (displayOption === 'Port et Adresse Réseau') {
+          navigate('/sap', { state: { data: res.data } });
+        } else if (displayOption === 'Certificat') {
+          navigate('/certif', { state: { data: res.data } });
+        } else if (displayOption === 'Flux') {
+          if ('Flux_Info' in res.data) {
+            navigate('/flux', { state: { partnerName: partnerName, fluxInfo: res.data.Flux_Info, error: '' } });
+          }
+        }
+
+      }).catch(err => { console.log("THER ERR IS HERE",err)
+            navigate('/flux', { state: { partnerName: partnerName, fluxInfo: '', error: err.response.data.error } });
+         
+        setError(err.response.data);
+      });
+
+      console.log("tesssst", response)
+
+     
     } catch (error) {
       console.error('Error sending data to backend:', error);
     }
@@ -74,6 +95,7 @@ const Part = () => {
               <option value=""></option>
               <option value="Port et Adresse Réseau">Afficher le Port et l'Adresse Réseau</option>
               <option value="Certificat">Afficher les Informations du Certificat</option>
+              <option value="Flux">Afficher type de flux IDF</option>
             </select>
 
             <div className="d-flex justify-content-between mt-3">

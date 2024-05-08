@@ -10,6 +10,8 @@ import { Dashboard } from './pages/Dashboard';
 import Part from './pages/part';
 import Certif from './pages/certif';
 import Sap from './pages/sap';
+import Flux from './pages/flux';
+
 
 function App() {
     return (
@@ -26,6 +28,7 @@ function App() {
                             <Route path="/part" element={<Part />} />
                             <Route path="/sap" element={<Sap />} />
                             <Route path="/certif" element={<Certif />} />
+                            <Route path="/flux" element={<Flux/>} />
                             <Route path="*" element={<div> Page Not Found!</div>} />
                         </Routes>
                     </div>
